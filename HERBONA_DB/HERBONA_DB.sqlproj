@@ -172,5 +172,10 @@
     <Build Include="dbo\User Defined Types\UDT_ITEMS_STOCK.sql" />
     <Build Include="dbo\User Defined Types\UDT_Agent_BankProof_Details.sql" />
     <Build Include="dbo\User Defined Types\UDT_Agent_AddressProof_Details.sql" />
+    <Build Include="dbo\Tables\SHIPPING_METHOD.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_SHIPPING_METHOD.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Delivery_Address.sql" />
+    <Build Include="dbo\Stored Procedures\GetShipping_Address.sql" />
+    <Build Include="dbo\Stored Procedures\GET_SHIPPING_METHOD.sql" />
   </ItemGroup>
 </Project>

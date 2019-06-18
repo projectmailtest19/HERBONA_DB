@@ -1,9 +1,11 @@
-﻿ CREATE PROCEDURE [dbo].[GET_ITEM_DETAILS_ORDERED]
+﻿
+-- [GET_ITEM_DETAILS_ORDERED] @Company_ID='1',@Branch_ID='2',@ORDER_ID='1'
+ CREATE PROCEDURE [dbo].[GET_ITEM_DETAILS_ORDERED] 
 @ID bigint  = NULL,
 @IsActive bit = 1,
 @Company_ID bigint,
 @Branch_ID bigint,
-@login_id BIGINT,
+@login_id BIGINT=null,
 @ORDER_ID BIGINT = null
 AS
 BEGIN
@@ -28,6 +30,8 @@ BEGIN
 	  ,g.CGST_PERCENTAGE
 	  ,g.SGST_PERCENTAGE
 	  ,QUANTITY
+	  ,(QUANTITY*ID.[PRODUCT_SVP]) as Total_SVP
+	  ,(QUANTITY*ID.[PBO_PRICE]) as Total_Amount
   FROM [ORDER_ENTRY_ITEMS] AS ID 
   INNER JOIN ITEM_CATEGORY AS IC ON ID.CATEGORY_ID = IC.ID
   inner join GST as g on id.GST_ID = g.ID

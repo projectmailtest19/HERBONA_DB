@@ -99,11 +99,13 @@ IF( @MODE = 'INSERT' )
       -------------------------------End Contact table insert------------------------------------   
       --------------------------------ADDRESS table Insert--------------------------------   
       INSERT INTO address 
-                  (addressline, 
+                  (name,
+				  addressline, 
                    district_id, 
                    state_id, 
                    country_id, 
                    pincode,  
+				   MobileNo,
                    contact_id, 
                    isactive, 
                    createddate, 
@@ -111,11 +113,13 @@ IF( @MODE = 'INSERT' )
                    company_id, 
                    branch_id, 
                    is_default) 
-      VALUES      (@addressline, 
+      VALUES      (@name,
+	               @addressline, 
                    @district_id, 
                    @state_id, 
                    @country_id, 
                    @pincode,  
+				   @MobileNo,
                    @Contact_ID, 
                    1, 
                    Getdate(), 
@@ -183,12 +187,13 @@ IF( @ID IS NOT NULL
 
       ------------------------------ End Contact table update------------------------------------   
       UPDATE address 
-      SET   
+      SET   name = @Name, 
              addressline = @addressline, 
              state_id = @state_id, 
              country_id = @country_id, 
              district_id = @district_id, 
              pincode = @pincode, 
+			 MobileNo = @MobileNo, 
              updateddate = Getdate(), 
              updatedby = @Login_user_ID 
       WHERE  contact_id = @ID 

@@ -1,5 +1,5 @@
 ﻿-- GET_MEMBER 1,2
-CREATE PROCEDURE GET_MEMBER
+CREATE PROCEDURE [dbo].[GET_MEMBER]
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
 @ID           bigint=null
