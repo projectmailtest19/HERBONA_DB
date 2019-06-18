@@ -1,0 +1,4 @@
+﻿CREATE TYPE [dbo].[UDT_ITEMS_STOCK] AS TABLE (
+    [ITEM_ID]  BIGINT           NULL,
+    [QUANTITY] DECIMAL (25, 13) NULL);
+

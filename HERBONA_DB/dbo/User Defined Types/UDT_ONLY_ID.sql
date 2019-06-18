@@ -1,0 +1,3 @@
+﻿CREATE TYPE [dbo].[UDT_ONLY_ID] AS TABLE (
+    [ID] BIGINT NULL);
+

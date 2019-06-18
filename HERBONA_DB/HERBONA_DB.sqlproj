@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>HERBONA_DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{af4e4069-2159-4613-a0d0-2cbd144dcc7c}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>HERBONA_DB</RootNamespace>
+    <AssemblyName>HERBONA_DB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\User Defined Types\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\WALLET_BALANCE_HISTORY.sql" />
+    <Build Include="dbo\Tables\WALLET.sql" />
+    <Build Include="dbo\Tables\VACATION_TOUR.sql" />
+    <Build Include="dbo\Tables\TBL_RELATIONMASTER.sql" />
+    <Build Include="dbo\Tables\TBL_PAIRMASTER.sql" />
+    <Build Include="dbo\Tables\TBL_BUSINESSMASTER.sql" />
+    <Build Include="dbo\Tables\TBL_ASSOCIATEMASTER.sql" />
+    <Build Include="dbo\Tables\STATE_MASTER.sql" />
+    <Build Include="dbo\Tables\SHIPPING_CHARGES.sql" />
+    <Build Include="dbo\Tables\ROLE_PERMISSION.sql" />
+    <Build Include="dbo\Tables\ROLE.sql" />
+    <Build Include="dbo\Tables\RANK_REWARD.sql" />
+    <Build Include="dbo\Tables\PAYMENT_MODE.sql" />
+    <Build Include="dbo\Tables\Organisation.sql" />
+    <Build Include="dbo\Tables\ORDER_ENTRY_PAYMENT.sql" />
+    <Build Include="dbo\Tables\ORDER_ENTRY_ITEMS.sql" />
+    <Build Include="dbo\Tables\ORDER_ENTRY.sql" />
+    <Build Include="dbo\Tables\MENU_MASTER.sql" />
+    <Build Include="dbo\Tables\LOG_COUNT.sql" />
+    <Build Include="dbo\Tables\ITEMS_STOCK.sql" />
+    <Build Include="dbo\Tables\ITEM_DETAILS.sql" />
+    <Build Include="dbo\Tables\ITEM_CATEGORY.sql" />
+    <Build Include="dbo\Tables\GST.sql" />
+    <Build Include="dbo\Tables\DISTRICT_MASTER.sql" />
+    <Build Include="dbo\Tables\COUNTRY_MASTER.sql" />
+    <Build Include="dbo\Tables\CONTACT.sql" />
+    <Build Include="dbo\Tables\COMPANY.sql" />
+    <Build Include="dbo\Tables\BRANCH.sql" />
+    <Build Include="dbo\Tables\Agent_Sponsor_Details.sql" />
+    <Build Include="dbo\Tables\Agent_PANCard_Details.sql" />
+    <Build Include="dbo\Tables\Agent_BankProof_Details.sql" />
+    <Build Include="dbo\Tables\Agent_Bank_Details.sql" />
+    <Build Include="dbo\Tables\Agent_AppicationForm_Details.sql" />
+    <Build Include="dbo\Tables\Agent_AddressProof_Details.sql" />
+    <Build Include="dbo\Tables\ADDRESS.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateAgentActiveStatus.sql" />
+    <Build Include="dbo\Stored Procedures\UPDATE_ORDER_ENTRY_ADDRESS.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_WALLET_BALANCE_HISTORY.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_WALLET.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_VACATION_TOUR.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_SHIPPING_CHARGES.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_RANK_REWARD.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_PAYMENT_MODE.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_ORDER_ENTRY.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_ITEMS_STOCK.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_ITEM_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_ITEM_CATEGORY.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_GST.sql" />
+    <Build Include="dbo\Stored Procedures\LOGIN_CHECK2.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Role_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Contact_DETAILS_Agent.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Contact_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_COMPANY_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_BRANCH_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_Sponsor_Details.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_PANCard_Details.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_BankProof_Details.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_Bank_Details.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_AppicationForm_Details.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_AddressProof_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetStateList.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedSponsor_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedRoleDetails.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedContactDetailsProfile.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedContactDetails.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedCompanyDetailsProfile.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedCompanyDetails.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedbranchDetailsProfile.sql" />
+    <Build Include="dbo\Stored Procedures\GetSelectedbranchDetails.sql" />
+    <Build Include="dbo\Stored Procedures\GetRoleList.sql" />
+    <Build Include="dbo\Stored Procedures\Getloginuser.sql" />
+    <Build Include="dbo\Stored Procedures\GetDistrictList.sql" />
+    <Build Include="dbo\Stored Procedures\GetCountryList.sql" />
+    <Build Include="dbo\Stored Procedures\GetContactList.sql" />
+    <Build Include="dbo\Stored Procedures\GetCompanyList.sql" />
+    <Build Include="dbo\Stored Procedures\GetbranchList.sql" />
+    <Build Include="dbo\Stored Procedures\GetALLSponsor.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgentPersonalDetails.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgent_Sponsor_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgent_PANCard_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgent_BankProof_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgent_Bank_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgent_AppicationForm_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgent_AddressProof_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GET_WALLET_BALANCE_HISTORY.sql" />
+    <Build Include="dbo\Stored Procedures\GET_WALLET.sql" />
+    <Build Include="dbo\Stored Procedures\GET_VACATION_TOUR.sql" />
+    <Build Include="dbo\Stored Procedures\GET_SHIPPING_CHARGES.sql" />
+    <Build Include="dbo\Stored Procedures\GET_RANK_REWARD.sql" />
+    <Build Include="dbo\Stored Procedures\GET_PERMISSION_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\GET_PAYMENT_MODE.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ORDER_ENTRY_ITEMS.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ORDER_ENTRY_ADDRESS.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ORDER_ENTRY.sql" />
+    <Build Include="dbo\Stored Procedures\GET_MENU.sql" />
+    <Build Include="dbo\Stored Procedures\GET_MEMBER.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ITEMS_STOCK.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ITEM_DETAILS_ORDERED.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ITEM_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\GET_ITEM_CATEGORY.sql" />
+    <Build Include="dbo\Stored Procedures\GET_GST.sql" />
+    <Build Include="dbo\Stored Procedures\CU_PERMISSION.sql" />
+    <Build Include="dbo\Stored Procedures\CHANGE_RESET_PASSWORD.sql" />
+    <Build Include="dbo\Stored Procedures\ADDASSOCIATE.sql" />
+    <Build Include="dbo\User Defined Types\UDT_ORDER_ENTRY_ITEMS.sql" />
+    <Build Include="dbo\User Defined Types\UDT_ONLY_ID.sql" />
+    <Build Include="dbo\User Defined Types\UDT_ITEMS_STOCK.sql" />
+    <Build Include="dbo\User Defined Types\UDT_Agent_BankProof_Details.sql" />
+    <Build Include="dbo\User Defined Types\UDT_Agent_AddressProof_Details.sql" />
+  </ItemGroup>
+</Project>

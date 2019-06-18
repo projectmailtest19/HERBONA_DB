@@ -1,0 +1,25 @@
+﻿ 
+CREATE PROCEDURE UPDATE_ORDER_ENTRY_ADDRESS
+@ORDER_ID bigint  = NULL,
+@BILLING_ADDRESS_ID BIGINT = NULL,
+@SHIPPING_ADDRESS_ID BIGINT = NULL,
+@IsActive bit = NULL,
+@Company_ID bigint,
+@Branch_ID bigint,
+@login_id BIGINT
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;
+
+	UPDATE [ORDER_ENTRY]
+	SET [BILLING_ADDRESS_ID] = ISNULL(@BILLING_ADDRESS_ID,[BILLING_ADDRESS_ID]),
+	    [SHIPPING_ADDRESS_ID] = ISNULL(@SHIPPING_ADDRESS_ID,[SHIPPING_ADDRESS_ID])
+		,[UpdatedDate] = GETUTCDATE()
+        ,[UpdatedBy] = @login_id
+	   WHERE [Company_ID] = @Company_ID
+  AND [Branch_ID] = @Branch_ID 
+  AND [IsActive] = @IsActive 
+  AND ID = @ORDER_ID
+    
+END
