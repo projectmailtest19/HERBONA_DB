@@ -177,5 +177,8 @@
     <Build Include="dbo\Stored Procedures\INSERT_Delivery_Address.sql" />
     <Build Include="dbo\Stored Procedures\GetShipping_Address.sql" />
     <Build Include="dbo\Stored Procedures\GET_SHIPPING_METHOD.sql" />
+    <Build Include="dbo\Tables\Order_Details.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Order_Details.sql" />
+    <Build Include="dbo\Stored Procedures\GetAgentIDCardDetails.sql" />
   </ItemGroup>
 </Project>
