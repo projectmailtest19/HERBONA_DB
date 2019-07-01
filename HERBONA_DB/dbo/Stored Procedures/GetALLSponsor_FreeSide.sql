@@ -1,5 +1,6 @@
-﻿CREATE procedure [dbo].[GetSelectedSponsor_Details]
-@id   bigint=null
+﻿CREATE procedure [dbo].[GetALLSponsor_FreeSide]
+@Company_ID   bigint=null,
+@Branch_ID    bigint=null
 AS
 BEGIN
 --select * from Contact
@@ -9,11 +10,17 @@ BEGIN
 	BEGIN try 
           BEGIN TRANSACTION 
 
-	select  c.MobileNo,b.Account_Number,s.Placed_MemberID
-      from CONTACT as c inner join Agent_Bank_Details as b on b.Contact_id=c.ID
-	  left join Agent_Sponsor_Details as s on s.Contact_id=c.ID
-	  where c.[IsActive]=1 and c.[ID]=@id
-	
+           select ID,Name from [Organisation] as o 
+		   inner join Contact as c on c.id = o.ASSID
+           where IsActive=1 and Company_ID=@Company_ID and Branch_ID=@Branch_ID  
+		   and c.id not in (select sponsor_id from (
+                                 select count(sponsor_id) as cnt,sponsor_id from Agent_Sponsor_Details  
+                                 group by sponsor_id   
+                              ) as c where c.cnt >= 2
+							)
+		   
+		   order by ID desc
+
           COMMIT 
       END try 
 

@@ -14,14 +14,26 @@ BEGIN
 	 BEGIN try 
           BEGIN TRANSACTION 
 
-
+declare @MaxChildNode hierarchyid
 
 
 IF( @MODE = 'INSERT' ) 
   BEGIN 
   Declare @Placed_MemberID nvarchar(max), @Placed_Team nvarchar(max)
   set  @Placed_MemberID = CAST(round(RAND()*10000000000000000,0) AS BIGINT)
+
+  if not exists(select * from Agent_Sponsor_Details where [Sponsor_ID] = @Sponsor_ID)
+  begin 
+
   set @Placed_Team = 'L'
+
+  end
+  else
+  begin
+
+  set @Placed_Team = 'R'
+
+  end
 
 
       ------------------------------ Contact table insert------------------------------------   
@@ -48,6 +60,33 @@ IF( @MODE = 'INSERT' )
                    @Login_user_ID, 
                    @Company_ID, 
                    @Branch_ID) 
+
+
+        IF (@Placed_Team = 'L')
+        BEGIN
+          SELECT
+            @MaxChildNode = CAST((AdvisorHierarchyNode.ToString() + '1/') AS hierarchyid)
+          FROM Organisation
+          WHERE ASSID = @Sponsor_ID
+        END
+
+        ELSE
+        BEGIN
+          SELECT
+            @MaxChildNode = CAST((AdvisorHierarchyNode.ToString() + '2/') AS hierarchyid)
+          FROM Organisation
+          WHERE ASSID = @Sponsor_ID
+        END
+
+
+        INSERT Organisation (ASSID, AdvisorHierarchyNode)
+          VALUES (@Contact_id, @MaxChildNode)
+
+		  insert TBL_PAIRMASTER (ASSID,PAIR,LEFT_CHILD,RIGHT_CHILD) values (@Contact_id,0,0,0)				
+
+
+		  exec [pair]
+
 
       -------------------------------End Contact table insert------------------------------------   
     

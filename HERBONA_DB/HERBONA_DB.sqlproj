@@ -66,10 +66,8 @@
     <Build Include="dbo\Tables\WALLET_BALANCE_HISTORY.sql" />
     <Build Include="dbo\Tables\WALLET.sql" />
     <Build Include="dbo\Tables\VACATION_TOUR.sql" />
-    <Build Include="dbo\Tables\TBL_RELATIONMASTER.sql" />
     <Build Include="dbo\Tables\TBL_PAIRMASTER.sql" />
     <Build Include="dbo\Tables\TBL_BUSINESSMASTER.sql" />
-    <Build Include="dbo\Tables\TBL_ASSOCIATEMASTER.sql" />
     <Build Include="dbo\Tables\STATE_MASTER.sql" />
     <Build Include="dbo\Tables\SHIPPING_CHARGES.sql" />
     <Build Include="dbo\Tables\ROLE_PERMISSION.sql" />
@@ -180,5 +178,7 @@
     <Build Include="dbo\Tables\Order_Details.sql" />
     <Build Include="dbo\Stored Procedures\INSERT_Order_Details.sql" />
     <Build Include="dbo\Stored Procedures\GetAgentIDCardDetails.sql" />
+    <Build Include="dbo\Stored Procedures\pair.sql" />
+    <Build Include="dbo\Stored Procedures\GetALLSponsor_FreeSide.sql" />
   </ItemGroup>
 </Project>

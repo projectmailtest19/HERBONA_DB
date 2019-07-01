@@ -1,4 +1,5 @@
-﻿CREATE procedure [dbo].[GetAgent_Sponsor_Details]
+﻿-- [GetAgent_Sponsor_Details] 1
+CREATE procedure [dbo].[GetAgent_Sponsor_Details]
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
 @Contact_id   bigint=null

@@ -8,9 +8,12 @@ BEGIN
 	SET NOCOUNT ON;
 
 	BEGIN try 
-          BEGIN TRANSACTION 
-          select ID,Name from Contact where IsActive=1 and Company_ID=@Company_ID and Branch_ID=@Branch_ID
-	  and IsAgent=1 order by ID desc
+          BEGIN TRANSACTION
+		   
+		   select ID,Name from [Organisation] as o 
+		   inner join Contact as c on c.id = o.ASSID
+           where IsActive=1 and Company_ID=@Company_ID and Branch_ID=@Branch_ID  order by ID desc
+
           COMMIT 
       END try 
 
