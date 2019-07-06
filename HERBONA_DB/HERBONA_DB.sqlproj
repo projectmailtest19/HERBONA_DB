@@ -180,5 +180,8 @@
     <Build Include="dbo\Stored Procedures\GetAgentIDCardDetails.sql" />
     <Build Include="dbo\Stored Procedures\pair.sql" />
     <Build Include="dbo\Stored Procedures\GetALLSponsor_FreeSide.sql" />
+    <Build Include="dbo\Stored Procedures\Get_Rank_History.sql" />
+    <Build Include="dbo\Stored Procedures\Get_MyDirects.sql" />
+    <Build Include="dbo\Stored Procedures\get_dashboard_data.sql" />
   </ItemGroup>
 </Project>
