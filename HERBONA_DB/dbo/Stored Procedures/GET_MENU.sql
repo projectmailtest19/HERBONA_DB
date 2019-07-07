@@ -41,7 +41,7 @@ SELECT s.ID , s.MenuName  ,s.ParentID, s.URL,s.ICON,s.Status ,s.SL_NO,
                   where k.ParentID=s.id and k.Status=1  order by k.SL_NO asc
      FOR XML PATH ('')), 1, 1, ''
                )  
-FROM MENU_MASTER s   Where S.ParentID is null or S.ParentID =0   
+FROM MENU_MASTER s   Where S.ParentID is null or S.ParentID =0   and s.status = 1 
 )T order by SL_NO asc
 
 SELECT @Menu=COALESCE(@Menu,'','') + Menu FROM  @TEMP_MENU 
@@ -66,11 +66,11 @@ SELECT s.ID , s.MenuName  ,s.ParentID, s.URL,s.ICON,s.Status ,SL_NO,
                  (SELECT '<li><a href="'+ISNULL(URL,'#')+'"><i class="fa fa-th"></i><span>'+ Convert(Nvarchar(56),k.MenuName) + '</span></a></li>'  FROM MENU_MASTER k 
         INNER JOIN ROLE_PERMISSION MCP on MCP.MenuID=k.ID
         where k.ParentID=s.id and MCP.RoleID=@Role_ID and MCP.Company_Id=@company_id and MCP.Branch_Id=@Branch_Id 
-		and MCP.B_View=1 and ( MCP.B_Add=1 or  MCP.B_Edit=1 or  MCP.B_Delete=1 ) 
+		and MCP.B_View=1 and ( MCP.B_Add=1 or  MCP.B_Edit=1 or  MCP.B_Delete=1 ) and k.status = 1
 		 order by k.SL_NO asc
      FOR XML PATH ('')), 1, 1, ''
                )  
-FROM MENU_MASTER s  Where S.ParentID is null or S.ParentID =0
+FROM MENU_MASTER s  Where S.ParentID is null or S.ParentID =0 and s.status = 1
 )T
  
 inner join ROLE_PERMISSION P on P.MenuID=T.ID AND P.RoleID=@Role_ID and  P.Company_Id=@company_id and P.Branch_Id=@Branch_Id

@@ -87,6 +87,15 @@ IF( @MODE = 'INSERT' )
 
 		  exec [pair]
 
+		  declare @rank_id int
+
+		  select top 1 @rank_id = [ID] from  [RANK_REWARD]
+          order by id
+
+		  insert into [Agent_Rank_Details](Contact_id, Rank_Id, CreatedDate, Company_ID, Branch_ID)
+		  values(@Contact_id,@rank_id,getutcdate(), @Company_ID, 
+                   @Branch_ID)
+
 
       -------------------------------End Contact table insert------------------------------------   
     
