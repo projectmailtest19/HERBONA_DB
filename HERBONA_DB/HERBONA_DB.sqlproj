@@ -184,5 +184,10 @@
     <Build Include="dbo\Stored Procedures\Get_MyDirects.sql" />
     <Build Include="dbo\Stored Procedures\get_dashboard_data.sql" />
     <Build Include="dbo\Tables\Agent_Rank_Details.sql" />
+    <Build Include="dbo\Tables\WALLET_PAYMENT_TYPE.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_ORDER_PAYMENT_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\GET_MEMBER_WALLET_BALANCE.sql" />
+    <Build Include="dbo\Stored Procedures\GET_MEMBER_SHIPPING.sql" />
+    <Build Include="dbo\User Defined Types\UDT_ORDER_PAYMENT_DETAILS.sql" />
   </ItemGroup>
 </Project>

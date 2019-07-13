@@ -8,7 +8,6 @@
     [CARD_EXPIRY_DATE]   NVARCHAR (50)    NULL,
     [BANK_NAME]          NVARCHAR (255)   NULL,
     [ACCOUNT_NUMBER]     NVARCHAR (255)   NULL,
-    [WALLET_ID]          BIGINT           NULL,
     [IsActive]           BIT              NULL,
     [CreatedDate]        DATETIME         NULL,
     [CreatedBy]          INT              NULL,
@@ -17,4 +16,6 @@
     [Company_ID]         BIGINT           NULL,
     [Branch_ID]          BIGINT           NULL
 );
+
+
 
