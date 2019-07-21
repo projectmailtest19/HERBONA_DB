@@ -9,7 +9,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT '1' as Sno,
-	     [Placed_MemberID] as Account_No,
+	     [Placed_MemberID] as [MEMEBER_ID],
          c.[Name],
 	     c.[CreatedDate] as Registration_Date,
 	     rr.NAME as   Designation,

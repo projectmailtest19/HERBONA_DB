@@ -14,7 +14,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 SELECT oe.[ID]
-      ,oe.[MEMEBER_ID]
+      ,[Placed_MemberID] as [MEMEBER_ID]
 	  ,oe.ORDER_NUMBER
       ,oe.[ORDER_DATE]
       ,oe.[INVOICE_DATE]
@@ -27,6 +27,8 @@ SELECT oe.[ID]
   FROM [ORDER_ENTRY] as oe
   inner join CONTACT as c 
   on c.id = oe.[MEMEBER_ID]
+  left join [Agent_Sponsor_Details] as a 
+  on c.id = a.Contact_id
   WHERE oe.[Company_ID] = @Company_ID
   AND oe.[Branch_ID] = @Branch_ID 
   AND oe.[IsActive] = @IsActive

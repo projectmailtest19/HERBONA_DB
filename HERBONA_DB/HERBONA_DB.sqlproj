@@ -189,5 +189,7 @@
     <Build Include="dbo\Stored Procedures\GET_MEMBER_WALLET_BALANCE.sql" />
     <Build Include="dbo\Stored Procedures\GET_MEMBER_SHIPPING.sql" />
     <Build Include="dbo\User Defined Types\UDT_ORDER_PAYMENT_DETAILS.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_WALLET_PAYMENT_TYPE.sql" />
+    <Build Include="dbo\Stored Procedures\GET_WALLET_PAYMENT_TYPE.sql" />
   </ItemGroup>
 </Project>

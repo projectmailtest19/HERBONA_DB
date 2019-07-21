@@ -7,6 +7,8 @@ BEGIN
 	 
 	SET NOCOUNT ON;
 
+	select * into AA from @UDT_ORDER_PAYMENT_DETAILS
+
 	  SELECT 1                           AS ID, 
              'Payment Successfully Processed' AS CustomMessage, 
              '0'                            AS CustomErrorState 

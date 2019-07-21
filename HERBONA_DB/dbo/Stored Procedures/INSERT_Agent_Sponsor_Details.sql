@@ -20,7 +20,7 @@ declare @MaxChildNode hierarchyid
 IF( @MODE = 'INSERT' ) 
   BEGIN 
   Declare @Placed_MemberID nvarchar(max), @Placed_Team nvarchar(max)
-  set  @Placed_MemberID = CAST(round(RAND()*10000000000000000,0) AS BIGINT)
+  set  @Placed_MemberID = CAST(round(RAND()*1000000000,0) AS BIGINT)
 
   if not exists(select * from Agent_Sponsor_Details where [Sponsor_ID] = @Sponsor_ID)
   begin 
