@@ -20,7 +20,7 @@ declare @ORDER_DATE  datetime = NULL,
         @ORDER_NUMBER nvarchar(max)
 
 set @ORDER_DATE = getutcdate()
-set @ORDER_NUMBER = newid()
+set @ORDER_NUMBER = 'ORD'+convert(varchar,CAST(round(RAND()*1000000000000000,0) AS bigint))
 
 DECLARE @_ORDER_ID BIGINT
 
