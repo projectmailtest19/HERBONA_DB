@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE  dbo.SAVE_UPDATE_WALLET_BALANCE_HISTORY
 @ID   bigint  = NULL,
 @DATE   datetime = NULL,
-@AMOUNT   decimal (25, 13) = NULL,
+@AMOUNT   decimal (18, 2) = NULL,
 @STATUS_CR_DR   nvarchar (10) = NULL,
 @DETAILS   nvarchar (max) = NULL,
  

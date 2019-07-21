@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[WALLET_BALANCE_HISTORY] (
     [ID]                     BIGINT           IDENTITY (1, 1) NOT NULL,
     [DATE]                   DATETIME         NULL,
-    [AMOUNT]                 DECIMAL (25, 13) NULL,
+    [AMOUNT]                 DECIMAL (18, 2) NULL,
     [STATUS_CR_DR]           NVARCHAR (10)    NULL,
     [DETAILS]                NVARCHAR (MAX)   NULL,
     [IsActive]               BIT              NULL,

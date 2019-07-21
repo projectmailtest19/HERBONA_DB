@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[ORDER_ENTRY_PAYMENT] (
     [ID]                 BIGINT           IDENTITY (1, 1) NOT NULL,
     [ORDER_ID]           BIGINT           NULL,
-    [AMOUNT]             DECIMAL (25, 13) NULL,
+    [AMOUNT]             DECIMAL (18, 2) NULL,
     [MODE_OF_PAYMENT]    BIGINT           NULL,
     [PAYMET_DATE]        DATETIME         NULL,
     [CREDIT_CARD_NUMBER] NVARCHAR (255)   NULL,

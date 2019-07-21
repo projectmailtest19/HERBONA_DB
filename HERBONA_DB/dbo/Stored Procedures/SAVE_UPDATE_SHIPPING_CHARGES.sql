@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE  [dbo].[SAVE_UPDATE_SHIPPING_CHARGES]
 @ID   bigint  = NULL,
 @DISTRICT_ID   bigint = NULL,
-@CHARGE_PERCENTAGE   decimal (25, 13) = NULL,
-@CHARGE_AMOUNT   decimal (25, 13) = NULL,
+@CHARGE_PERCENTAGE   decimal (18, 2) = NULL,
+@CHARGE_AMOUNT   decimal (18, 2) = NULL,
  
 @IsActive bit = NULL,
 @Company_ID bigint,

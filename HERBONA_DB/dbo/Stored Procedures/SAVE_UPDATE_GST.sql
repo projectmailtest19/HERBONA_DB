@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE  [dbo].[SAVE_UPDATE_GST] 
 @ID   bigint  = NULL,
-@CGST_PERCENTAGE   decimal (25, 13) = NULL,
-@SGST_PERCENTAGE   decimal (25, 13) = NULL,
-@IGST_PERCENTAGE   decimal (25, 13) = NULL,
+@CGST_PERCENTAGE   decimal (18, 2) = NULL,
+@SGST_PERCENTAGE   decimal (18, 2) = NULL,
+@IGST_PERCENTAGE   decimal (18, 2) = NULL,
 
 @IsActive bit = NULL,
 @Company_ID bigint,
