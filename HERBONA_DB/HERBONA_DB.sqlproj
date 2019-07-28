@@ -61,6 +61,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="dbo\User Defined Types\" />
+    <Folder Include="dbo\Functions\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\WALLET_BALANCE_HISTORY.sql" />
@@ -191,5 +192,30 @@
     <Build Include="dbo\User Defined Types\UDT_ORDER_PAYMENT_DETAILS.sql" />
     <Build Include="dbo\Stored Procedures\SAVE_UPDATE_WALLET_PAYMENT_TYPE.sql" />
     <Build Include="dbo\Stored Procedures\GET_WALLET_PAYMENT_TYPE.sql" />
+    <Build Include="dbo\Tables\Wallet_Setting_Bonus_Purchase.sql" />
+    <Build Include="dbo\Tables\TicketQueryStatusMaster.sql" />
+    <Build Include="dbo\Tables\TicketQueryReasonMaster.sql" />
+    <Build Include="dbo\Tables\TicketQueryMaster.sql" />
+    <Build Include="dbo\Tables\TicketQueryEntryDetails.sql" />
+    <Build Include="dbo\Tables\TicketQueryEntry.sql" />
+    <Build Include="dbo\Tables\Session.sql" />
+    <Build Include="dbo\Tables\PaySchedule.sql" />
+    <Build Include="dbo\Functions\FiscalYearMonth.sql" />
+    <Build Include="dbo\Stored Procedures\TicketView_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryStatusMaster_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryReasonMaster_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryMaster_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryDetailsReOpen_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryDetails_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQuery_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\TicketAgentResolved_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketAgentActive_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketAdminResolved_Get.sql" />
+    <Build Include="dbo\Stored Procedures\TicketAdminActive_Get.sql" />
+    <Build Include="dbo\Stored Procedures\INSERT_Agent_Quick.sql" />
+    <Build Include="dbo\Stored Procedures\get_Purchase_Wallet_Summary.sql" />
+    <Build Include="dbo\Stored Procedures\get_name_by_MemberID.sql" />
+    <Build Include="dbo\Stored Procedures\GET_MEMBER_WALLET_BALANCE_FromMemberID.sql" />
+    <Build Include="dbo\Stored Procedures\get_Bonus_Wallet_Summary.sql" />
   </ItemGroup>
 </Project>
