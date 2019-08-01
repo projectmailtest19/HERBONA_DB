@@ -60,12 +60,12 @@ set @pairincome=null;
 		       select @prevpair =ISNULL(PAIR,0) from TBL_PAIRMASTER where ASSID=@ASSID
 					
 			-- ****************   left side calculation
-				select @lchild = [Contact_id] from [Agent_Sponsor_Details] where [Sponsor_ID]=@ASSID and [Placed_Team]='L'						
+				select @lchild = [Contact_id] from [Agent_Sponsor_Details] where Placed_Contact_Id=@ASSID and [Placed_Team]='L'						
 				select @TopNodel = AdvisorHierarchyNode from Organisation where ASSID = @lchild 
 				select   @NOLC=isnull(COUNT(*),0) from Organisation where AdvisorHierarchyNode.IsDescendantOf(@TopNodel) = 1 
 				
 			-- ***************  Right Side Calculation	
-				select @rchild = [Contact_id] from [Agent_Sponsor_Details] where [Sponsor_ID]=@ASSID and [Placed_Team]='R'				
+				select @rchild = [Contact_id] from [Agent_Sponsor_Details] where Placed_Contact_Id=@ASSID and [Placed_Team]='R'				
 				select @TopNoder = AdvisorHierarchyNode from Organisation where ASSID = @rchild  
 				select   @NORC=isnull(COUNT(*),0) from Organisation where AdvisorHierarchyNode.IsDescendantOf(@TopNoder) = 1 
 				

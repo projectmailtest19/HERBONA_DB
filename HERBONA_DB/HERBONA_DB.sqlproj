@@ -217,5 +217,8 @@
     <Build Include="dbo\Stored Procedures\get_name_by_MemberID.sql" />
     <Build Include="dbo\Stored Procedures\GET_MEMBER_WALLET_BALANCE_FromMemberID.sql" />
     <Build Include="dbo\Stored Procedures\get_Bonus_Wallet_Summary.sql" />
+    <Build Include="dbo\Stored Procedures\get_TicketQueryReasonMaster.sql" />
+    <Build Include="dbo\Stored Procedures\get_TicketQueryMaster.sql" />
+    <Build Include="dbo\Stored Procedures\get_PaySchedule.sql" />
   </ItemGroup>
 </Project>

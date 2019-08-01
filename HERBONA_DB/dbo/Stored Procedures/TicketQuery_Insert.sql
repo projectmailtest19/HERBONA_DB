@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE TicketQuery_Insert
+﻿CREATE PROCEDURE [dbo].[TicketQuery_Insert]
 @TicketQueryMasterId int = NULL,
 @TicketQueryReasonMasterId int = NULL,
 @Contact_id int = NULL,
@@ -11,7 +11,7 @@
 @Comments nvarchar(max) = NULL,
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
-@Login_user_ID  int=null
+@login_id int=null
 AS
 BEGIN
 
@@ -31,7 +31,7 @@ BEGIN
 	insert into TicketQueryEntry (TicketQueryMasterId, TicketQueryReasonMasterId, TicketQueryStatusMasterId, Contact_id, TickerNumber, TicketDate, PayScheduleNo, CreditedAmount, EstimatedAmount,ORDER_NUMBER, Attatchments, Subject, IsActive,
 	 CreatedDate, CreatedBy,Company_ID, Branch_ID)
 	values(@TicketQueryMasterId,@TicketQueryReasonMasterId,@TicketQueryStatusMasterId,@Contact_id,null,getutcdate(),@PayScheduleNo,@CreditedAmount,@EstimatedAmount,@ORDER_NUMBER,@Attatchments,@Subject,'1',
-	 getutcdate(),@Login_user_ID,@Company_ID,@Branch_ID)
+	 getutcdate(),@login_id,@Company_ID,@Branch_ID)
 
     set @TicketQueryEntryId = @@identity
 
@@ -39,10 +39,10 @@ BEGIN
 
 
 	insert into TicketQueryEntryDetails (TicketQueryEntryId, AssignedTO, AnsweredBy, ActionPendingFrom, Comments, IsActive, CreatedDate, CreatedBy, Company_ID, Branch_ID)
-	values(@TicketQueryEntryId,@AssignedTO,null,@AssignedTO,@Comments,'1',getutcdate(),@Login_user_ID,@Company_ID,@Branch_ID)
+	values(@TicketQueryEntryId,@AssignedTO,null,@AssignedTO,@Comments,'1',getutcdate(),@login_id,@Company_ID,@Branch_ID)
 
 
 
-
-   
+	select  '0' as CustomErrorState,'sucess' as CustomMessage  
+ 
 END

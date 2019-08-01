@@ -9,9 +9,9 @@ BEGIN
 	BEGIN try 
           BEGIN TRANSACTION 
 
-	select  c.MobileNo,b.Account_Number,s.Placed_MemberID
-      from CONTACT as c inner join Agent_Bank_Details as b on b.Contact_id=c.ID
-	  left join Agent_Sponsor_Details as s on s.Contact_id=c.ID
+	  select  c.MobileNo,c.Name,s.MemberID
+      from CONTACT as c  
+	  inner join Agent_Sponsor_Details as s on s.Contact_id=c.ID
 	  where c.[IsActive]=1 and c.[ID]=@id
 	
           COMMIT 

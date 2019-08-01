@@ -1,8 +1,9 @@
 ﻿CREATE procedure [dbo].[INSERT_Agent_Sponsor_Details]
 @Contact_id		int=null,
-@Sponsor_ID bigint=null,
-@Placed_Name       nvarchar(max)=null,
-@SplitSponsor_ID bigint=null, 
+@Sponsor_Contact_Id bigint=null,
+@Placed_Contact_Id bigint=null,
+@Placed_Team nvarchar(10),
+
 @MODE			varchar(10)=null,
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
@@ -14,52 +15,34 @@ BEGIN
 	 BEGIN try 
           BEGIN TRANSACTION 
 
-declare @MaxChildNode hierarchyid
 
+declare @MaxChildNode hierarchyid
+ declare @rank_id int
 
 IF( @MODE = 'INSERT' ) 
   BEGIN 
-  Declare @Placed_MemberID nvarchar(max), @Placed_Team nvarchar(max)
-  set  @Placed_MemberID = CAST(round(RAND()*1000000000,0) AS BIGINT)
 
-  if not exists(select * from Agent_Sponsor_Details where [Sponsor_ID] = @Sponsor_ID)
-  begin 
 
-  set @Placed_Team = 'L'
-
-  end
-  else
+  if exists(select * from Agent_Sponsor_Details where Placed_Contact_Id = @Placed_Contact_Id and Placed_Team = @Placed_Team)
   begin
 
-  set @Placed_Team = 'R'
+    SELECT 0 as ID,'Placed Member already has Enterpreneur on the Placed Team' AS CustomMessage, 
+                 '2'  AS CustomErrorState
+
+	goto Last_row;
 
   end
 
+   
+
+
+  Declare @MemberID nvarchar(max)
+  set  @MemberID = CAST(round(RAND()*1000000000,0) AS BIGINT)
 
       ------------------------------ Contact table insert------------------------------------   
       INSERT INTO Agent_Sponsor_Details 
-                  ([Contact_id]
-      ,[Sponsor_ID]
-      ,[Placed_Name]
-      ,[Placed_MemberID]
-      ,[Placed_Team]
-	  ,[SplitSponsor_ID]
-      ,[IsActive]
-      ,[CreatedDate]
-      ,[CreatedBy]
-      ,[Company_ID]
-      ,[Branch_ID]) 
-      VALUES      (@Contact_id, 
-                   @Sponsor_ID, 
-                   @Placed_Name, 
-                   @Placed_MemberID, 
-				   @Placed_Team,
-				   @SplitSponsor_ID,
-                   1, 
-                   Getdate(), 
-                   @Login_user_ID, 
-                   @Company_ID, 
-                   @Branch_ID) 
+                  (Contact_id, Placed_Team, IsActive, CreatedDate, CreatedBy, Company_ID, Branch_ID, MemberID, Placed_Contact_Id, Sponsor_Contact_Id) 
+      VALUES      (@Contact_id, @Placed_Team, 1, Getdate(), @Login_user_ID, @Company_ID, @Branch_ID ,@MemberID ,@Placed_Contact_Id,@Sponsor_Contact_Id) 
 
 
         IF (@Placed_Team = 'L')
@@ -67,7 +50,7 @@ IF( @MODE = 'INSERT' )
           SELECT
             @MaxChildNode = CAST((AdvisorHierarchyNode.ToString() + '1/') AS hierarchyid)
           FROM Organisation
-          WHERE ASSID = @Sponsor_ID
+          WHERE ASSID = @Placed_Contact_Id
         END
 
         ELSE
@@ -75,7 +58,7 @@ IF( @MODE = 'INSERT' )
           SELECT
             @MaxChildNode = CAST((AdvisorHierarchyNode.ToString() + '2/') AS hierarchyid)
           FROM Organisation
-          WHERE ASSID = @Sponsor_ID
+          WHERE ASSID = @Placed_Contact_Id
         END
 
 
@@ -87,9 +70,10 @@ IF( @MODE = 'INSERT' )
 
 		  exec [pair]
 
-		  declare @rank_id int
+		 
 
 		  select top 1 @rank_id = [ID] from  [RANK_REWARD]
+		  where name ='HBO'
           order by id
 
 		  insert into [Agent_Rank_Details](Contact_id, Rank_Id, CreatedDate, Company_ID, Branch_ID)
@@ -111,14 +95,31 @@ IF(@MODE = 'UPDATE' )
 
       ------------------------------ Contact table update------------------------------------   
       UPDATE Agent_Sponsor_Details 
-      SET    [Sponsor_ID] = @Sponsor_ID, 
-			 [Placed_Name] =@Placed_Name,
-			 --[Placed_MemberID] =@Placed_MemberID,
-			 --[Placed_Team] =@Placed_Team,
-			 [SplitSponsor_ID]=@SplitSponsor_ID,
-             updateddate = Getdate(), 
-             updatedby = @Login_user_ID 
+      SET   
+	  --Placed_Team = @Placed_Team,  
+	  updateddate = Getdate(), 
+      updatedby = @Login_user_ID
+	  --Placed_Contact_Id = Placed_Contact_Id, 
+	  --Sponsor_Contact_Id  = @Sponsor_Contact_Id  
+	
       WHERE  [Contact_id] = @Contact_ID 
+
+
+	  if not exists(select * from [Agent_Rank_Details] 
+	       where contact_id = @Contact_id and Company_ID = @Company_ID and Branch_ID = @Branch_ID)
+	  begin	     
+
+		  select top 1 @rank_id = [ID] from  [RANK_REWARD]
+		  where name ='HBO'
+          order by id
+
+		  insert into [Agent_Rank_Details](Contact_id, Rank_Id, CreatedDate, Company_ID, Branch_ID)
+		  values(@Contact_id,@rank_id,getutcdate(), @Company_ID, 
+                   @Branch_ID)
+
+
+	  end
+
 
    
       ---------------------------------Success message for update-------------------------------------------------- 

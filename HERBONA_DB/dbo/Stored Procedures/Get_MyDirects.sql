@@ -8,14 +8,14 @@ BEGIN
 	
 	SET NOCOUNT ON;
 
-	SELECT [Placed_MemberID] as PBO_Account_No,
+	SELECT MemberID as MemberID,
        [Name],
 	   c.[CreatedDate] as RegistrationDate,
 	   [Placed_Team] as Position          
   FROM [CONTACT] as c
   left join [Agent_Sponsor_Details] as a 
   on c.id = a.Contact_id
-  where [Sponsor_ID] = @login_id or [SplitSponsor_ID] = @login_id 
+  where Sponsor_Contact_Id = @login_id   or Placed_Contact_Id = @login_id 
   order by c.[CreatedDate] 
    
 END

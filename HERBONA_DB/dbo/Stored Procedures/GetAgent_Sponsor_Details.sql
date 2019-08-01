@@ -14,11 +14,10 @@ BEGIN
 
 	select  [id]
       ,[Contact_id]
-      ,[Sponsor_ID]
-      ,[Placed_Name]
-      ,[Placed_MemberID]
+      ,Sponsor_Contact_Id      
+      ,MemberID
       ,[Placed_Team]
-	  ,[SplitSponsor_ID] from Agent_Sponsor_Details where [IsActive]=1 and [Contact_id]=@Contact_id and [Company_ID]=@Company_ID and [Branch_ID]=@Branch_ID
+	  ,Placed_Contact_Id from Agent_Sponsor_Details where [IsActive]=1 and [Contact_id]=@Contact_id and [Company_ID]=@Company_ID and [Branch_ID]=@Branch_ID
 	
           COMMIT 
       END try 

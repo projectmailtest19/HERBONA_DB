@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE TicketAgentActive_Get
+﻿CREATE PROCEDURE [dbo].[TicketAgentActive_Get]
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
 @Login_user_ID  int=null
@@ -7,7 +7,7 @@ BEGIN
 	
 	SET NOCOUNT ON;
 
-	select  TickerNumber, TicketDate,tqm.name as TicketLabel,tqrm.name as QueryType,tqsm.name as Staus,	
+	select  TickerNumber, TicketDate,tqm.name as TicketLabel,tqrm.name as QueryType,tqsm.name as Status,	
 	   tqe.PayScheduleNo, tqe.CreditedAmount, tqe.EstimatedAmount, tqe.Attatchments, tqe.Subject, tqe.ORDER_NUMBER,
 	   ans_by.AnsweredBy,assg_to.AssignedTO,assg_to.ActionPendingFrom
 	from TicketQueryEntry as tqe 
@@ -35,7 +35,7 @@ BEGIN
 	left join TicketQueryEntryDetails as tqed on tqed.TicketQueryEntryId = tqe.id
 	where tqm.Company_ID = @Company_ID
 	and tqm.Branch_ID = @Branch_ID
-	and Contact_id = @Login_user_ID
+	--and Contact_id = @Login_user_ID
 	and tqe.IsActive = '1'
 	and tqsm.name in ('Active','InProcess') 
 	order by tqed.CreatedDate

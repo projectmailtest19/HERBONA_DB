@@ -11,6 +11,7 @@
 @district_id	int=null,
 @addressline	nvarchar(max)=null, 
 @pincode		nvarchar(100)=null, 
+@DateOfBirth varchar(20)=null,
 @MODE			varchar(10)=null,
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
@@ -78,7 +79,8 @@ IF( @MODE = 'INSERT' )
                    Branch_id,
 				   IsAgent,
 				   IsAgentActive,
-				   ImageURL) 
+				   ImageURL,
+				   DateOfBirth) 
       VALUES      (@Name, 
                    @RoleId, 
                    @MobileNo, 
@@ -92,7 +94,8 @@ IF( @MODE = 'INSERT' )
                    @Branch_ID,
 				   1,
 				   1,
-				   @ImageURL) 
+				   @ImageURL,
+				   @DateOfBirth) 
 
       SET @Contact_ID=@@IDENTITY 
 
@@ -182,7 +185,8 @@ IF( @ID IS NOT NULL
              email = @Email,
 			 ImageURL =@ImageURL,
              updateddate = Getdate(), 
-             updatedby = @Login_user_ID 
+             updatedby = @Login_user_ID,
+			 DateOfBirth = @DateOfBirth 
       WHERE  id = @ID 
 
       ------------------------------ End Contact table update------------------------------------   

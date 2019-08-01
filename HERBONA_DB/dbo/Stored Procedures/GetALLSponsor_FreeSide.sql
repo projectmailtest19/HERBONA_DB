@@ -13,9 +13,9 @@ BEGIN
            select ID,Name from [Organisation] as o 
 		   inner join Contact as c on c.id = o.ASSID
            where IsActive=1 and Company_ID=@Company_ID and Branch_ID=@Branch_ID  
-		   and c.id not in (select sponsor_id from (
-                                 select count(sponsor_id) as cnt,sponsor_id from Agent_Sponsor_Details  
-                                 group by sponsor_id   
+		   and c.id not in (select Placed_Contact_Id from (
+                                 select count(Placed_Contact_Id) as cnt,Placed_Contact_Id from Agent_Sponsor_Details  
+                                 group by Placed_Contact_Id   
                               ) as c where c.cnt >= 2
 							)
 		   

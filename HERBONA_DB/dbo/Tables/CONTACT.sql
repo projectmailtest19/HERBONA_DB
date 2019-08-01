@@ -16,6 +16,9 @@
     [Branch_ID]     BIGINT         NULL,
     [IsAgent]       BIT            NULL,
     [IsAgentActive] BIT            NULL,
-    [ImageURL]      NVARCHAR (MAX) NULL
+    [ImageURL]      NVARCHAR (MAX) NULL,
+    [DateOfBirth]   VARCHAR (20)   NULL
 );
+
+
 

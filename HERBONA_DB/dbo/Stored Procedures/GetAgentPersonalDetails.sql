@@ -13,7 +13,7 @@ BEGIN
           BEGIN TRANSACTION 
 
 	select c.ID, c.Name, c.MobileNo, c.Email, c.Gender,c.ImageURL,addr.country_id, addr.state_id,addr.district_id,
-     addr.addressline as Address,addr.pincode,   c.IsAgentActive 
+     addr.addressline as Address,addr.pincode,   c.IsAgentActive ,DateOfBirth
 	from Contact c
 	inner join ADDRESS as addr on addr.Contact_Id = c.ID	
 	where c.IsActive=1 and c.Company_ID=@Company_ID and c.Branch_ID=@Branch_ID

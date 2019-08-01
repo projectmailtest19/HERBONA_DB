@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[TicketView_Get]
+﻿-- [TicketView_Get] 2,1,2
+CREATE PROCEDURE [dbo].[TicketView_Get]
 @TickerNumber nvarchar(100),
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
@@ -8,7 +9,7 @@ BEGIN
 	
 	SET NOCOUNT ON;
 
-	select  TickerNumber, TicketDate,tqm.name as TicketLabel,tqrm.name as QueryType,tqsm.name as Staus,	
+	select  TickerNumber, TicketDate,tqm.name as TicketLabel,tqrm.name as QueryType,tqsm.name as Status,	
 	   tqe.PayScheduleNo, tqe.CreditedAmount, tqe.EstimatedAmount, tqe.Attatchments, tqe.Subject, tqe.ORDER_NUMBER,
 	   ans_by.AnsweredBy,assg_to.AssignedTO,assg_to.ActionPendingFrom
 	from TicketQueryEntry as tqe 

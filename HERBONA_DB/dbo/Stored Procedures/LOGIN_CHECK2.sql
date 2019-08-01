@@ -6,6 +6,11 @@ AS
 BEGIN
 	 SET NOCOUNT ON;
 
+select @UID = [email]  from contact as c
+left join  [Agent_Sponsor_Details] as a
+on c.id = a.Contact_id
+where [email] = @UID or MobileNo = @UID and MemberID  = @UID
+
 	 BEGIN try 
     BEGIN TRANSACTION 
 

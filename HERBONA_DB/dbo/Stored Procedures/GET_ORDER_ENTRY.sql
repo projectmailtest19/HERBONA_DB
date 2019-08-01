@@ -14,7 +14,7 @@ BEGIN
 	SET NOCOUNT ON;
 
 SELECT oe.[ID]
-      ,[Placed_MemberID] as [MEMEBER_ID]
+      ,MemberID as [MEMEBER_ID]
 	  ,ab.Account_Number
       ,oe.[ORDER_DATE]
 	  ,oe.ORDER_NUMBER
