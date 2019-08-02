@@ -5,7 +5,7 @@
 @IsActive bit = NULL,
 @Company_ID bigint,
 @Branch_ID bigint,
-@login_id BIGINT	 
+@login_id BIGINT=null	 
 AS
 BEGIN
 	 
