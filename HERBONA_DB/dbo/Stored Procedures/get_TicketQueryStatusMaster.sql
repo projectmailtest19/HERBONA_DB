@@ -1,5 +1,5 @@
 ﻿ 
-CREATE PROCEDURE [dbo].[get_TicketQueryMaster]
+CREATE PROCEDURE [dbo].[get_TicketQueryStatusMaster]
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
 @login_id     bigint=null,
@@ -11,7 +11,7 @@ BEGIN
 
    
 select id, name,IsActive 
-from TicketQueryMaster
+from TicketQueryStatusMaster
 where Company_ID = @Company_ID
 and Branch_ID = @Branch_ID 
 and IsActive = '1'

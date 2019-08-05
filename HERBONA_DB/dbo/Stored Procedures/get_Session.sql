@@ -1,5 +1,5 @@
 ﻿ 
-CREATE PROCEDURE [dbo].[get_TicketQueryMaster]
+CREATE PROCEDURE [dbo].[get_Session]
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null,
 @login_id     bigint=null,
@@ -10,8 +10,8 @@ BEGIN
 	SET NOCOUNT ON;
 
    
-select id, name,IsActive 
-from TicketQueryMaster
+select id, Session_Name,from_date,to_date,IsActive 
+from Session
 where Company_ID = @Company_ID
 and Branch_ID = @Branch_ID 
 and IsActive = '1'

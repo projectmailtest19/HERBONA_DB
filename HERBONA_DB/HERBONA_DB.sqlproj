@@ -204,7 +204,6 @@
     <Build Include="dbo\Stored Procedures\TicketView_Get.sql" />
     <Build Include="dbo\Stored Procedures\TicketQueryStatusMaster_Get.sql" />
     <Build Include="dbo\Stored Procedures\TicketQueryReasonMaster_Get.sql" />
-    <Build Include="dbo\Stored Procedures\TicketQueryMaster_Get.sql" />
     <Build Include="dbo\Stored Procedures\TicketQueryDetailsReOpen_Insert.sql" />
     <Build Include="dbo\Stored Procedures\TicketQueryDetails_Insert.sql" />
     <Build Include="dbo\Stored Procedures\TicketQuery_Insert.sql" />
@@ -220,5 +219,10 @@
     <Build Include="dbo\Stored Procedures\get_TicketQueryReasonMaster.sql" />
     <Build Include="dbo\Stored Procedures\get_TicketQueryMaster.sql" />
     <Build Include="dbo\Stored Procedures\get_PaySchedule.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_TicketQueryStatusMaster.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_TicketQueryMaster.sql" />
+    <Build Include="dbo\Stored Procedures\SAVE_UPDATE_Session.sql" />
+    <Build Include="dbo\Stored Procedures\get_TicketQueryStatusMaster.sql" />
+    <Build Include="dbo\Stored Procedures\get_Session.sql" />
   </ItemGroup>
 </Project>
