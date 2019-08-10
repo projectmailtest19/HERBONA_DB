@@ -224,5 +224,12 @@
     <Build Include="dbo\Stored Procedures\SAVE_UPDATE_Session.sql" />
     <Build Include="dbo\Stored Procedures\get_TicketQueryStatusMaster.sql" />
     <Build Include="dbo\Stored Procedures\get_Session.sql" />
+    <Build Include="dbo\Functions\fnSplitString.sql" />
+    <Build Include="dbo\Stored Procedures\Wallet_Setting_Bonus_Purchase_Select.sql" />
+    <Build Include="dbo\Stored Procedures\Wallet_Setting_Bonus_Purchase_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\WALLET_PAYMENT_TYPE_Select.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryReasonMaster_Select.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryReasonMaster_Insert.sql" />
+    <Build Include="dbo\Stored Procedures\TicketQueryMaster_Select.sql" />
   </ItemGroup>
 </Project>
