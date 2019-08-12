@@ -49,6 +49,8 @@ IF( @MODE = 'INSERT' )
   BEGIN 
       ------------------------------------validation for insert------------------------------------------- 
 
+
+--------------check email exists--------------------
       IF EXISTS (SELECT email 
                  FROM   contact 
                  WHERE  email = @Email 
@@ -62,6 +64,23 @@ IF( @MODE = 'INSERT' )
 
             GOTO last_row; 
         END 
+
+------------check mobile number exists-----------------
+      IF EXISTS (SELECT MobileNo 
+                 FROM   contact 
+                 WHERE  MobileNo = @MobileNo 
+                        AND isactive = 1) 
+        BEGIN 
+            SELECT 0 as ID, 'Mobile No already exists..!' AS CustomMessage, 
+                   '2'                          AS CustomErrorState,
+				    '' as Email_ID,
+			 '' as Passward,
+			 '' as Agent_Name 
+
+            GOTO last_row; 
+        END 
+
+
 
       ----------------------------------End validation for insert--------------------------------------------- 
       ------------------------------ Contact table insert------------------------------------   
@@ -159,6 +178,8 @@ IF( @ID IS NOT NULL
   BEGIN 
       ------------------------------------validation for Update------------------------------------------- 
 
+
+--------------check email exists--------------------
       IF EXISTS (SELECT email 
                  FROM   contact 
                  WHERE  email = @Email 
@@ -173,6 +194,23 @@ IF( @ID IS NOT NULL
 				    '' as Email_ID,
 			 '' as Passward,
 			 '' as Agent_Name
+
+            GOTO last_row; 
+        END 
+
+
+------------check mobile number exists-----------------
+      IF EXISTS (SELECT MobileNo 
+                 FROM   contact 
+                 WHERE  MobileNo = @MobileNo 
+				        AND id != @ID
+                        AND isactive = 1) 
+        BEGIN 
+            SELECT 0 as ID, 'Mobile No already exists..!' AS CustomMessage, 
+                   '2'                          AS CustomErrorState,
+				    '' as Email_ID,
+			 '' as Passward,
+			 '' as Agent_Name 
 
             GOTO last_row; 
         END 

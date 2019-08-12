@@ -93,7 +93,12 @@ BEGIN
 
 END
 
+if not exists(select * from  [dbo].CONTACT where id = @MEMEBER_ID and IsItemOrdered != 1)
+begin
 
+  update CONTACT set IsItemOrdered = 1  where id = @MEMEBER_ID
+
+end
 
 
 MERGE ORDER_ENTRY_ITEMS AS PS 

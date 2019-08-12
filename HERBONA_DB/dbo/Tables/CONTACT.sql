@@ -17,8 +17,11 @@
     [IsAgent]       BIT            NULL,
     [IsAgentActive] BIT            NULL,
     [ImageURL]      NVARCHAR (MAX) NULL,
-    [DateOfBirth]   VARCHAR (20)   NULL
+    [DateOfBirth]   VARCHAR (20)   NULL,
+    [IsItemOrdered] INT            NULL
 );
+
+
 
 
 

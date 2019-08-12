@@ -8,7 +8,7 @@ BEGIN
 
     select c.name,c.Company_ID,c.Branch_ID from [dbo].[Agent_Sponsor_Details] as asd 
     inner join contact as c on asd.contact_id = c.id
-    where MemberID = @MemberID
+    where MemberID = @MemberID and c.IsActive=1 and IsItemOrdered = 1 
 
 
 END

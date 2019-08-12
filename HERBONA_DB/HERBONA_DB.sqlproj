@@ -231,5 +231,6 @@
     <Build Include="dbo\Stored Procedures\TicketQueryReasonMaster_Select.sql" />
     <Build Include="dbo\Stored Procedures\TicketQueryReasonMaster_Insert.sql" />
     <Build Include="dbo\Stored Procedures\TicketQueryMaster_Select.sql" />
+    <Build Include="dbo\Stored Procedures\GetALLSponsor_forOrderEntry.sql" />
   </ItemGroup>
 </Project>

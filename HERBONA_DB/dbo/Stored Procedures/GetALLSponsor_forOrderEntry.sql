@@ -1,4 +1,4 @@
-﻿CREATE procedure [dbo].[GetALLSponsor]
+﻿CREATE procedure [dbo].[GetALLSponsor_forOrderEntry]
 @Company_ID   bigint=null,
 @Branch_ID    bigint=null
 AS
@@ -13,8 +13,7 @@ BEGIN
 		   select c.ID,Name,a.memberid from [Organisation] as o 
 		   inner join Contact as c on c.id = o.ASSID
 		   inner join [dbo].[Agent_Sponsor_Details] as a on c.id = a.contact_id
-           where c.IsActive=1 and c.Company_ID=@Company_ID and c.Branch_ID=@Branch_ID 
-		   and IsItemOrdered = 1 order by c.ID desc
+           where c.IsActive=1 and c.Company_ID=@Company_ID and c.Branch_ID=@Branch_ID order by c.ID desc
 
           COMMIT 
       END try 

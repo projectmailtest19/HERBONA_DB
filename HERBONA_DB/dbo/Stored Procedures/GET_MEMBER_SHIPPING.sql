@@ -10,8 +10,8 @@ BEGIN
 	   --[CHARGE_PERCENTAGE]
     --  ,[CHARGE_AMOUNT],
 	  TOTAL_AMOUNT as SALES_AMOUNT,
-	  CHARGE_AMOUNT as SHIPPING,
-	  (TOTAL_AMOUNT + CHARGE_AMOUNT) as NET_AMOUNT  from [dbo].[Order_Details] as o
+	  isnull(CHARGE_AMOUNT,0) as SHIPPING,
+	  (TOTAL_AMOUNT + isnull(CHARGE_AMOUNT,0)) as NET_AMOUNT  from [dbo].[Order_Details] as o
     left join [ADDRESS] as a
     on o.Address_ID = a.id
     left join [SHIPPING_CHARGES] as s
